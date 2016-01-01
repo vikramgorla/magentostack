@@ -25,16 +25,14 @@
         <% if @params[:apache]['allow_from'] %>
             Satisfy Any
         <% end %>
-    AuthUserFile <%= @params[:magento]['dir'] %>/.htpasswd
+    AuthUserFile <%= @params[:apache]['htpasswd'] %>
     AuthType Basic
     AuthName "Protected System"
     Require valid-user
-
-    SetEnvIf Request_URI ^/LICENSE.txt$ noauth=1
-    Allow from env=noauth
+    
     <% end  %>
 
-    <% if @params[:magento]['apache']['parse_htaccess'] %>
+    <% if @params[:apache]['parse_htaccess'] %>
     AllowOverride All
     <% else %>
     ## Apache optimisation by disabling the .htaccess parsing
