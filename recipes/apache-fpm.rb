@@ -157,6 +157,7 @@ vhosts.each do |site|
   web_app site do
     template node['magentostack']['web']['template']
     cookbook node['magentostack']['web']['cookbook']
+    apache node['apache']
     http_port node['magentostack']['web']['http_port']
     docroot node['magentostack']['web']['dir']
     server_name node['magentostack']['web']['domain']
