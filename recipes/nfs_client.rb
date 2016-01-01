@@ -19,9 +19,10 @@
 #
 
 include_recipe 'chef-sugar'
-include_recipe 'nfs::default' # ~RACK002
-nfs_server_node, export_name, export_root = MagentostackUtil.best_nfs_server(node)
-return unless nfs_server_node && export_name && export_root
+include_recipe 'nfs::default'
+nfs_server_node = 
+export_name =  
+export_root = 
 
 mount_point_path = node['magentostack']['nfs_client']['mount_point']
 
@@ -30,7 +31,7 @@ directory mount_point_path do
   group node['apache']['group']
 end
 
-target_media_dir = "#{node['magentostack']['web']['dir']}/media"
+target_media_dir = "#{node['magento']['capistrano']['docroot']}/shared/media"
 mount mount_point_path do
   device "#{nfs_server_node}:#{export_root}/#{export_name}"
   fstype 'nfs'
