@@ -24,7 +24,7 @@ node['magento']['capistrano']['app_shared_files'].each do |file|
 end
 
 bash "fix_deployment_permissions_recursively" do
-  code "chown -R #{deploy_owner}:#{deploy_group} #{root_dir}"
+  code "chown -R #{folder_owner}:#{folder_group} #{root_dir}"
 end
 
 if node['magento']['capistrano']['nfs_path']
