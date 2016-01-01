@@ -20,7 +20,35 @@
 
   <Directory <%= @params[:docroot] %>/>
     Options +FollowSymLinks
+    
+    <% if @params[:apache]['basic_username'] %>
+        <% if @params[:apache]['allow_from'] %>
+            Satisfy Any
+        <% end %>
+    AuthUserFile <%= @params[:magento]['dir'] %>/.htpasswd
+    AuthType Basic
+    AuthName "Protected System"
+    Require valid-user
+
+    SetEnvIf Request_URI ^/LICENSE.txt$ noauth=1
+    Allow from env=noauth
+    <% end  %>
+
+    <% if @params[:magento]['apache']['parse_htaccess'] %>
+    AllowOverride All
+    <% else %>
+    ## Apache optimisation by disabling the .htaccess parsing
+    ## Directives for securing directorys have been added to this file
     AllowOverride None
+    <% end %>
+    Order allow,deny
+    <% if @params[:apache]['allow_from'] %>
+        <% @params[:apache]['allow_from'].each do |ip| %>
+            Allow from <%= ip %>
+        <% end %>
+    <% else %>
+        Allow from all
+    <% end %>
     
     DirectoryIndex index.php
     
