@@ -117,3 +117,10 @@ node.default['magentostack']['web']['monitor']['disabled'] = false
 node.default['magentostack']['web']['monitor']['period'] = 60
 node.default['magentostack']['web']['monitor']['timeout'] = 15
 node.default['magentostack']['web']['monitor']['alarm'] = false
+
+# apache basic auth attributes and htaccess controls
+node.default['apache']['parse_htaccess'] = false
+node.default['apache']['basic_username'] = false
+node.default['apache']['allow_from'] = false
+node.default['apache']['htpasswd'] = "#{node['apache']['dir']}/htpassword"
+
