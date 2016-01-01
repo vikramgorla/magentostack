@@ -20,9 +20,9 @@
 
 include_recipe 'chef-sugar'
 include_recipe 'nfs::default'
-nfs_server_node = 
-export_name =  
-export_root = 
+nfs_server_node = node['magentostack']['nfs_client']['nfs_server_node']
+export_name =  node['magentostack']['nfs_client']['export_name']
+export_root = node['magentostack']['nfs_client']['export_root']
 
 mount_point_path = node['magentostack']['nfs_client']['mount_point']
 
