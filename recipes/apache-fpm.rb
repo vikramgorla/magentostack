@@ -145,6 +145,7 @@ directory node['magentostack']['web']['dir'] do
   user node['apache']['user']
   group node['apache']['group']
   action :create
+  recursive true
   not_if { File.exist?(node['magentostack']['web']['dir']) }
 end
 
