@@ -31,40 +31,9 @@ directory mount_point_path do
   group node['apache']['group']
 end
 
-target_media_dir = "#{node['magento']['capistrano']['docroot']}/shared/media"
 mount mount_point_path do
   device "#{nfs_server_node}:#{export_root}/#{export_name}"
   fstype 'nfs'
   options ['rw', 'sec=sys']
   action [:mount, :enable]
-  notifies :create, "directory[#{target_media_dir}]", :immediately
-end
-
-# check at runtime for directory, remove it if it exists, as we can't do this at compile time
-# because we may install/unzip/create magento directories during convergence
-ruby_block 'check for magento media directory at converge time' do
-  block do
-    if File.exist?(target_media_dir) && !File.symlink?(target_media_dir)
-      dir = run_context.resource_collection.find(directory: target_media_dir)
-      dir.action :delete
-    end
-  end
-end
-
-directory target_media_dir do
-  recursive true
-  user node['apache']['user']
-  group node['apache']['group']
-  action :create # see ruby block above
-end
-
-directory "#{mount_point_path}/media" do
-  user node['apache']['user']
-  group node['apache']['group']
-end
-
-link target_media_dir do
-  to "#{mount_point_path}/media"
-  user node['apache']['user']
-  group node['apache']['group']
 end
