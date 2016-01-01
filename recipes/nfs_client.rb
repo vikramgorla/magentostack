@@ -55,7 +55,7 @@ directory target_media_dir do
   recursive true
   user node['apache']['user']
   group node['apache']['group']
-  action :nothing # see ruby block above
+  action :create # see ruby block above
 end
 
 directory "#{mount_point_path}/media" do
