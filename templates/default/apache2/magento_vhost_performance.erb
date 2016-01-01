@@ -20,6 +20,8 @@
 
   <Directory <%= @params[:docroot] %>/>
     Options +FollowSymLinks
+    EnableMMAP <%= @params[:apache]['enable_mmap'] %>
+    EnableSendfile <%= @params[:apache]['enable_sendfile'] %>
     
     <% if @params[:apache]['basic_username'] %>
         <% if @params[:apache]['allow_from'] %>
