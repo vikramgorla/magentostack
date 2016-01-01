@@ -48,10 +48,6 @@ default['magentostack']['nfs_server']['export_name'] = 'magento_media'
 default['magentostack']['nfs_server']['export_root'] = '/export/data'
 default['magentostack']['nfs_server']['discovery_query'] = "tags:magentostack_nfs_server AND chef_environment:#{node.chef_environment}"
 
-# clients
-default['magentostack']['nfs_client']['mount_point'] = '/mnt/magento_media'
-default['magentostack']['nfs_client']['symlink_target'] = 'media' # within /var/www/html/magento
-
 # newrelic
 default['newrelic_meetme_plugin']['user'] = 'newrelic'
 
