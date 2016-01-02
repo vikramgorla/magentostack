@@ -18,3 +18,4 @@ default['magento']['varnish']['additional_recv_subs'] = []
 default['magento']['varnish']['additional_hash_subs'] = []
 default['magento']['varnish']['director_strategy'] = 'random'
 default['magento']['apache']['unsecure_port'] = node['magentostack']['web']['http_port']
+default['magento']['app']['admin_frontname'] = 'admin'
