@@ -10,18 +10,18 @@ include "/etc/varnish/geoip.vcl";
 
 # Create a health check to verify that the backend server is responding
 # correctly and in a timely manner.
-probe healthcheck {
-   .request =
-         "GET /LICENSE.txt HTTP/1.1"
-         "Host: <%= @magento[:apache][:servername] %>"
-         "Connection: close";
-   .interval = 120s;
-   .timeout = <%= @magento['varnish']['probe']['timeout'] %>;
-   .window = 8;
-   .threshold = 3;
-   .initial = 3;
-   #.expected_response = 200; # Still want the Magento maintenance page to display so no response code check
-}
+#probe healthcheck {
+#   .request =
+#         "GET /LICENSE.txt HTTP/1.1"
+#         "Host: <%= @magento[:apache][:servername] %>"
+#         "Connection: close";
+#   .interval = 120s;
+#   .timeout = <%= @magento['varnish']['probe']['timeout'] %>;
+#   .window = 8;
+#   .threshold = 3;
+#   .initial = 3;
+#   #.expected_response = 200; # Still want the Magento maintenance page to display so no response code check
+#}
 # Setup a list of backend servers. If you are installing Varnish on each server
 # then the backend list will only include localhost. If your using a setting up Varnish
 # as a load balancer you will have a list of each of the backend servers.
