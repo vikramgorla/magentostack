@@ -75,6 +75,8 @@ end
 
 node.default['apache']['default_modules'] = apache_modules
 
+#do not install any php 5.3 or stock php packages from regular repo
+node.default['php']['packages'] = []
 # install php libraries requirements
 php_version = node['magentostack']['php']['version']
 node['magentostack'][php_version]['packages'].each do |phplib|
