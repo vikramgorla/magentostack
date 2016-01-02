@@ -160,7 +160,11 @@ vhosts.each do |site|
     cookbook node['magentostack']['web']['cookbook']
     apache node['apache']
     http_port node['magentostack']['web']['http_port']
-    docroot node['magentostack']['web']['dir']
+    if node['magento']['capistrano']['enabled']
+      docroot = "#{node['magentostack']['web']['dir']}/current"
+    else 
+      docroot = node['magentostack']['web']['dir']
+    end
     server_name node['magentostack']['web']['domain']
     server_aliases node['magentostack']['web']['server_aliases']
     if node['magentostack']['web']['ssl']
