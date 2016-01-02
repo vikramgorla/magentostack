@@ -22,7 +22,7 @@ include_recipe "chef-varnish"
 begin
   t = resources(:template => File.join(node['varnish']['config_dir'], 'default.vcl'))
   t.source "varnish.vcl.erb"
-  t.cookbook "chef-magento"
+  t.cookbook "magentostack"
   t.variables({
     :params => node['varnish'],
     :magento => node['magento']
