@@ -20,6 +20,7 @@ depends 'ark'
 depends 'build-essential'
 depends 'certificate'
 depends 'chef-sugar'
+depends "chef-varnish"
 depends 'cron'
 depends 'database'
 depends 'git'
