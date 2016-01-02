@@ -23,7 +23,7 @@ depends 'chef-sugar'
 #depends "chef-varnish"
 depends 'cron'
 #depends 'database'
-#depends 'git'
+depends 'git'
 depends 'htpasswd'
 depends 'logrotate'
 #depends 'mysql-multi'
