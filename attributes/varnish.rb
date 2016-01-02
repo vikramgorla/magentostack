@@ -11,6 +11,7 @@ default['magento']['varnish']['backend_servers'] = [
 default['magento']['varnish']['trusted_servers'] = [
     "127.0.0.1"
 ]
+default['varnish']['cookies'] = ['currency', 'store']
 default['magento']['varnish']['ttl_for_static_files'] = '30d'
 default['magento']['varnish']['probe']['timeout'] = '90s'
 default['magento']['varnish']['additional_vcls'] = []
