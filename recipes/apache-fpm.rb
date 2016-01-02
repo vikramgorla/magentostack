@@ -26,10 +26,12 @@ if node['magentostack']['web']['ssl']
   ports << node['magentostack']['web']['https_port']
 end
 
+node.set['apache']['listen_ports'] = ''
+
 ports.each do |p|
-  unless node['apache']['listen_ports'].include?(p)
+#  unless node['apache']['listen_ports'].include?(p)
     node.set['apache']['listen_ports'] = node['apache']['listen_ports'] + [p]
-  end
+#  end
 end
 
 # Modules dependencies (Magento/Php-fpm)
