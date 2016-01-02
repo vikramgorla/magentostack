@@ -37,7 +37,7 @@ default['magentostack']['web']['ssl_custom'] = false
 default['magentostack']['web']['ssl_custom_databag'] = 'certificates'
 default['magentostack']['web']['ssl_custom_databag_item'] = 'magento'
 default['magentostack']['web']['cookbook'] = 'magentostack'
-default['magentostack']['web']['template'] = 'apache2/magento_vhost.erb'
+default['magentostack']['web']['template'] = 'apache2/magento_vhost_performance.erb'
 default['magentostack']['web']['fastcgi']['add_handler_options'] = '.php'
 default['magentostack']['web']['dir'] = "#{node['apache']['docroot_dir']}/magento"
 
