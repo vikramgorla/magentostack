@@ -1,7 +1,7 @@
-root_dir = "#{node['magento']['capistrano']['docroot']}"
+root_dir = "#{node['magentostack']['web']['dir']}"
 
-folder_owner = node['magento']['capistrano']["folder_owner"]
-folder_group = node['magento']['capistrano']["folder_owner"]
+deploy_user = node['magento']['capistrano']["deploy_user"]
+deploy_group = node['magento']['capistrano']["deploy_user"]
 
 %w{releases shared}.each do |dir|
   directory "#{root_dir}/#{dir}" do
@@ -24,7 +24,7 @@ node['magento']['capistrano']['app_shared_files'].each do |file|
 end
 
 bash "fix_deployment_permissions_recursively" do
-  code "chown -R #{folder_owner}:#{folder_group} #{root_dir}"
+  code "chown -R #{deploy_user}:#{deploy_group} #{root_dir}"
 end
 
 if node['magento']['capistrano']['nfs_path']
