@@ -1,6 +1,6 @@
-node.default['magento']['capistrano']['enabled'] = true
-node.default['magento']['capistrano']['deploy_user'] = 'deploymentuser'
-node.default['magento']['capistrano']["app_shared_dirs"] = ["/app/etc", "/sitemaps", "/media", "/var", "/staging"]
-node.default['magento']['capistrano']["app_shared_files"] = ["/app/etc/local.xml"]
-node.default['magento']['capistrano']["nfs_path"] = '/mnt/nfs'
-node.default['magento']['capistrano']["nfs_symlinks"] = ["/media", "/staging", "/sitemaps", "/var/locks"]
+default['magento']['capistrano']['enabled'] = true
+default['magento']['capistrano']['deploy_user'] = 'deploymentuser'
+default['magento']['capistrano']["app_shared_dirs"] = ["/app/etc", "/sitemaps", "/media", "/var", "/staging"]
+default['magento']['capistrano']["app_shared_files"] = ["/app/etc/local.xml"]
+default['magento']['capistrano']["nfs_path"] = '/mnt/nfs'
+default['magento']['capistrano']["nfs_symlinks"] = ["/media", "/staging", "/sitemaps", "/var/locks"]
