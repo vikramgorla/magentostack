@@ -160,7 +160,7 @@ vhosts.each do |site|
     cookbook node['magentostack']['web']['cookbook']
     apache node['apache']
     http_port node['magentostack']['web']['http_port']
-      docroot = "#{node['magentostack']['web']['dir']}/current"
+      docroot = node['magentostack']['web']['dir']
     server_name node['magentostack']['web']['domain']
     server_aliases node['magentostack']['web']['server_aliases']
     if node['magentostack']['web']['ssl']
