@@ -26,7 +26,7 @@ if node['magentostack']['web']['ssl']
   ports << node['magentostack']['web']['https_port']
 end
 
-node.set['apache']['listen_ports'] = ''
+node.set['apache']['listen_ports'] = node['apache']['default_site_port]
 
 ports.each do |p|
 #  unless node['apache']['listen_ports'].include?(p)
