@@ -61,6 +61,7 @@ when 'rhel'
     php55u-pecl-redis
     php55u-opcache
     php55u-mbstring
+    php55u-ldap
   )
 
   default['magentostack']['php54']['packages'] = %w(
