@@ -61,7 +61,7 @@ when 'rhel'
     php55u-pecl-redis
     php55u-opcache
     php55u-mbstring
-    php55u-ldap
+    php55u-ldap # PHP LDAP Extension to support extensions LDAP authentication in Magento
   )
 
   default['magentostack']['php54']['packages'] = %w(
