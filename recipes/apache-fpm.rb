@@ -34,7 +34,7 @@ end
 
 # Modules dependencies (Magento/Php-fpm)
 apache_modules = %w(
-  status actions alias auth_basic
+  status actions auth_basic
   authn_file authz_default
   authz_groupfile authz_host
   authz_user autoindex dir env mime
@@ -43,6 +43,11 @@ apache_modules = %w(
 )
 if node['magentostack']['web']['ssl']
   apache_modules << 'ssl'
+end
+
+# Calling alias module directly to be able to use local template for alias module - where directory listing is disabled
+apache_module 'alias' do
+  conf true
 end
 
 # repo dependencies for php-fpm
