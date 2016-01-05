@@ -198,6 +198,11 @@
         <FilesMatch "\.(ico|jpe?g|png|gif|swf|css|gz|js|woff)$">
             Header set Cache-Control  "public, max-age=2592000"
         </FilesMatch>
+        
+        <% if @params[:apache]['only_secure_cookies'] %>
+        Header set Set-Cookie HttpOnly;Secure  
+        <% end  %>
+    
     </IfModule>
 
     ############################################
