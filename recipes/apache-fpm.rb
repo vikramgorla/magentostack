@@ -44,11 +44,8 @@ apache_modules = %w(
 if node['magentostack']['web']['ssl']
   apache_modules << 'ssl'
 end
-
-# Calling alias module directly to be able to use local template for alias module - where directory listing is disabled
-apache_module 'alias' do
-  conf true
-end
+# Calling alias seperately to disable creating alias directory for icons automatically
+apache_module 'alias'
 
 # repo dependencies for php-fpm
 if platform_family?('rhel')
