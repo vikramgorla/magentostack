@@ -236,6 +236,7 @@
     </FilesMatch>
     
   </Directory>
+  # Send all requests to sensitive directories to invalid path so that Magento sends normal 404 response
   <%
     [
       '/app',
@@ -260,10 +261,7 @@
       '/RELEASE_NOTES.txt',
       '/README.txt'
     ].each do |dir| %>
-  <Location <%= dir %>>
-      Order deny,allow
-      Deny from all
-  </Location>
+  Alias <%= dir %> /dev/null/blackhole
   <% end %>
   
   <Directory <%= @params[:docroot] %>/media>
