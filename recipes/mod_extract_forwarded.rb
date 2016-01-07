@@ -5,5 +5,5 @@ package "mod_extract_forwarded"
 
 apache_module 'proxy_extract_forwarded' do
   conf true
-  filename 'extract_forwarded.so'
+  filename 'mod_extract_forwarded.so'
 end
