@@ -45,7 +45,9 @@ if node['magentostack']['web']['ssl']
   apache_modules << 'ssl'
 end
 # Calling alias seperately to disable creating alias directory for icons automatically
-apache_module 'alias'
+apache_module 'alias' do
+  conf true
+end
 
 # repo dependencies for php-fpm
 if platform_family?('rhel')
