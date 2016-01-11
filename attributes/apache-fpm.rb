@@ -122,4 +122,4 @@ node.default['apache']['htpasswd'] = "#{node['apache']['dir']}/htpassword"
 node.default['apache']['enable_mmap'] = "On"
 node.default['apache']['enable_sendfile'] = "On"
 node.default['apache']['only_secure_cookies'] = false
-default['apache']['https_offloaded'] = false
+default['apache']['https_only'] = false
