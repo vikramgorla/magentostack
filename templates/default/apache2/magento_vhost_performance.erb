@@ -18,7 +18,7 @@
   # We are enabling this even if we are not behind a load-balancer as it should not create any harm
   SetEnvIf X-Forwarded-Proto https HTTPS=on
   <% if @params[:apache]['https_only'] %>
-    Header always set Strict-Transport-Security "max-age=63072000"
+  Header always set Strict-Transport-Security "max-age=63072000"
   <% end %>
 
   <Directory <%= @params[:docroot] %>/>
