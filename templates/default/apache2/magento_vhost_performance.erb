@@ -258,7 +258,13 @@
       '/mage',
       '/php.ini.sample',
       '/RELEASE_NOTES.txt',
-      '/README.txt'
+      '/README.txt'.
+      '/errors/default/404.phtml',
+      '/errors/default/503.phtml',
+      '/errors/default/page.phtml',
+      '/errors/default/report.phtml',
+      '/errors/design.xml',
+      '/errors/local.xml'
     ].each do |dir| %>
   <Location <%= dir %>>
       Order deny,allow
