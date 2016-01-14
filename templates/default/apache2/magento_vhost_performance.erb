@@ -226,10 +226,6 @@
       SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
       Header append Vary User-Agent env=!dont-vary
     </IfModule>
-    <ifModule mod_expires.c>
-      ExpiresActive On
-      ExpiresDefault "access plus 1 month"
-    </IfModule>
     # Allow web fonts across parallel hostnames
     # (otherwise Firefox and IE won't load them from CSS)
     <FilesMatch "\.(ttf|otf|eot|svg|woff)$">
