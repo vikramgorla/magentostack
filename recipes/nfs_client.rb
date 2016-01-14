@@ -31,9 +31,11 @@ directory mount_point_path do
   group node['apache']['group']
 end
 
-mount mount_point_path do
-  device "#{nfs_server_node}:#{export_root}/#{export_name}"
-  fstype 'nfs'
-  options ['rw', 'sec=sys']
-  action [:mount, :enable]
+if node['magentostack']['nfs_client']['enable_mount']
+  mount mount_point_path do
+    device "#{nfs_server_node}:#{export_root}/#{export_name}"
+    fstype 'nfs'
+    options ['rw', 'sec=sys']
+    action [:mount, :enable]
+  end
 end
