@@ -270,6 +270,18 @@
       Deny from all
   </Location>
   <% end %>
+  <% if @params[:apache]['restrict_api_urls'] %>
+    <%
+      [
+      '/api',
+      '/index.php/api/'
+      ].each do |dir| %>
+  <Location <%= dir %>>
+      Order deny,allow
+      Deny from all
+  </Location>
+  <% end %>
+  <% end %>
   
   <Directory <%= @params[:docroot] %>/media>
       Options All -Indexes
