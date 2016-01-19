@@ -123,3 +123,4 @@ node.default['apache']['enable_mmap'] = "On"
 node.default['apache']['enable_sendfile'] = "On"
 node.default['apache']['only_secure_cookies'] = false
 default['apache']['https_only'] = false
+default['apache']['restrict_api_urls'] = true
