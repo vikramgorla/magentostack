@@ -20,7 +20,7 @@
 
 # otherwise apache2::default overwrites default vhost, then we overwrite it with
 # web_app further down, causing the file to churn on every chef converge
-override['apache']['default_site_enabled'] = false
+#override['apache']['default_site_enabled'] = false
 
 # there is a bug in mod_fastcgi, Magento <1.9 or EE <1.14 need this mod_fastcgi
 # only require if we decide to use Magento <1.9 or EE <1.14
