@@ -124,4 +124,4 @@ node.default['apache']['enable_sendfile'] = "On"
 node.default['apache']['only_secure_cookies'] = false
 default['apache']['https_only'] = false
 default['apache']['restrict_api_urls'] = true
-default['apache']['default_site_enabled'] = true
+node.default['apache']['default_site_enabled'] = true
